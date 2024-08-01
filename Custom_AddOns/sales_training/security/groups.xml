@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="training_team_group" model="res.groups">
+        <field name="name">Training Team</field>
+    </record>
+</odoo>

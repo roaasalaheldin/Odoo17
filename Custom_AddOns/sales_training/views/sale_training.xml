@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sales_training_model_form" model="ir.ui.view">
+        <field name="name">sales.training.model.form</field>
+        <field name="model">sales.training.model</field>
+        <field name="arch" type="xml">
+            <form string="Sales Training Model">
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm" class="oe_highlight"/>
+                    <button name="action_done" type="object" string="Done" class="oe_highlight"/>
+                    <button name="action_cancel" type="object" string="Cancel" class="oe_highlight"/>
+                    <button name="action_reset_to_draft" type="object" string="Reset to Draft" class="oe_highlight"/>
+                    <button name="%(sales_training.action_training_wizard)d" string="Training Wizard" type="action"
+                            class="oe_highlight"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <notebook>
+                        <page string="Personal Information">
+                            <group>
+                                <field name="first_name"/>
+                                <field name="last_name"/>
+                                <field name="amount"/>
+                                <field name="is_boolean"/>
+                                <field name="change_value"/>
+                                <field name="student_id"/>
+                            </group>
+                        </page>
+                        <page string="Additional Information">
+                            <group>
+                                <field name="additional_info"/>
+                                <field name="notes"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="sale_training_tree_view" model="ir.ui.view">
+        <field name="name">sale.training.tree.view</field>
+        <field name="model">sales.training.model</field>
+        <field name="arch" type="xml">
+            <tree string="Sale Training Tree">
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+/search view
+    <record id="action_sales_training_model" model="ir.actions.act_window">
+        <field name="name">Sales Training Model</field>
+        <field name="res_model">sales.training.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem
+            id="menu_sales_training_model"
+            name="Sales Training"
+            parent="sale.sale_order_menu"
+            action="action_sales_training_model"
+            sequence="23"
+    />
+</odoo>
